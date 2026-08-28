@@ -58,10 +58,10 @@
   .nav{display:flex; align-items:center; justify-content:space-between; height:76px; color:var(--paper);}
   .brand{display:flex; align-items:center; gap:12px; font-family:var(--ff-cond); font-weight:700; font-size:22px; letter-spacing:.02em; color:var(--paper);}
   .brand .mark{
-    height:44px; width:auto; background:#fff; border-radius:6px; padding:6px 8px;
+    height:44px; width:auto;
     display:flex; align-items:center; justify-content:center; flex:none;
   }
-  .brand .mark img{height:100%; width:auto; max-width:120px; display:block; object-fit:contain;}
+  .brand .mark img{height:100%; width:auto; max-width:140px; display:block; object-fit:contain;}
   .brand small{display:block; font-family:var(--ff-mono); font-size:9px; letter-spacing:.16em; color:#a9a297; font-weight:400; text-transform:uppercase; margin-top:2px;}
   nav ul{list-style:none; display:flex; gap:36px;}
   nav ul a{font-family:var(--ff-cond); font-size:16px; font-weight:600; letter-spacing:.03em; text-transform:uppercase; color:#cfc9bd; transition:color .2s;}
