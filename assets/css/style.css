@@ -58,10 +58,10 @@
   .nav{display:flex; align-items:center; justify-content:space-between; height:76px; color:var(--paper);}
   .brand{display:flex; align-items:center; gap:12px; font-family:var(--ff-cond); font-weight:700; font-size:22px; letter-spacing:.02em; color:var(--paper);}
   .brand .mark{
-    height:44px; width:auto;
+    height:44px; width:auto; background:#fff; border-radius:6px; padding:6px 8px;
     display:flex; align-items:center; justify-content:center; flex:none;
   }
-  .brand .mark img{height:100%; width:auto; max-width:140px; display:block; object-fit:contain;}
+  .brand .mark img{height:100%; width:auto; max-width:120px; display:block; object-fit:contain;}
   .brand small{display:block; font-family:var(--ff-mono); font-size:9px; letter-spacing:.16em; color:#a9a297; font-weight:400; text-transform:uppercase; margin-top:2px;}
   nav ul{list-style:none; display:flex; gap:36px;}
   nav ul a{font-family:var(--ff-cond); font-size:16px; font-weight:600; letter-spacing:.03em; text-transform:uppercase; color:#cfc9bd; transition:color .2s;}
@@ -80,19 +80,31 @@
     position:relative; min-height:100vh; background:var(--ink); color:var(--paper);
     display:flex; align-items:center; padding-top:76px; overflow:hidden;
   }
+  .hero-photo{
+    position:absolute; inset:0; z-index:0; background-color:var(--ink);
+    background-image:url('https://sytqpnpahdecvywvqzfl.supabase.co/storage/v1/object/public/NativeCon%20Media/work/3.png');
+    background-size:cover; background-position:center 30%;
+    filter:grayscale(35%) contrast(1.05);
+  }
+  .hero-photo::after{
+    content:""; position:absolute; inset:0;
+    background:
+      linear-gradient(180deg, rgba(11,13,16,0.88) 0%, rgba(11,13,16,0.78) 40%, rgba(11,13,16,0.94) 100%),
+      linear-gradient(90deg, rgba(11,13,16,0.5) 0%, rgba(11,13,16,0.15) 55%, rgba(11,13,16,0.55) 100%);
+  }
   .blueprint{
-    position:absolute; inset:0;
+    position:absolute; inset:0; z-index:1;
     background-image:
       linear-gradient(rgba(50,201,29,0.055) 1px, transparent 1px),
       linear-gradient(90deg, rgba(50,201,29,0.055) 1px, transparent 1px),
       linear-gradient(rgba(50,201,29,0.11) 1px, transparent 1px),
       linear-gradient(90deg, rgba(50,201,29,0.11) 1px, transparent 1px);
     background-size:14px 14px, 14px 14px, 84px 84px, 84px 84px;
-    opacity:.55;
+    opacity:.4;
   }
   .hero::after{
-    content:""; position:absolute; right:-10%; top:-15%; width:70%; height:130%;
-    background:radial-gradient(circle at center, rgba(0,82,213,0.35), transparent 65%);
+    content:""; position:absolute; right:-10%; top:-15%; width:70%; height:130%; z-index:1;
+    background:radial-gradient(circle at center, rgba(0,82,213,0.28), transparent 65%);
     pointer-events:none;
   }
   .hero-grid{position:relative; z-index:2; display:grid; grid-template-columns:1.15fr .85fr; gap:60px; align-items:end; padding-bottom:64px; width:100%;}
@@ -433,6 +445,21 @@
     .ask-fab{right:20px; bottom:90px; width:52px; height:52px;}
     .ask-panel{right:16px; bottom:150px;}
   }
+
+  /* ================= hero what-we-do strip ================= */
+  .hero-whatwedo{display:flex; flex-wrap:wrap; gap:28px; margin-top:36px; padding-top:28px; border-top:1px solid rgba(247,249,250,0.14);}
+  .wwd-item{display:flex; flex-direction:column; align-items:center; gap:8px; color:#c9c3b6;}
+  .wwd-item svg{width:26px; height:26px; fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round;}
+  .wwd-item span{font-family:var(--ff-mono); font-size:10.5px; letter-spacing:.06em; text-transform:uppercase;}
+  @media (max-width:640px){.hero-whatwedo{gap:20px;}}
+
+  /* ================= image fallback ================= */
+  .img-fallback{
+    width:100%; height:100%; min-height:120px; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:10px; background:var(--concrete); color:#8a8477; padding:16px; text-align:center;
+  }
+  .img-fallback svg{width:32px; height:32px; fill:none; stroke:currentColor; stroke-width:1.5;}
+  .img-fallback span{font-family:var(--ff-mono); font-size:11px; letter-spacing:.04em; line-height:1.4;}
 
   /* ================= landing gallery preview ================= */
   .gallery-preview{background:var(--ink); color:var(--paper); padding:110px 0; position:relative; overflow:hidden;}

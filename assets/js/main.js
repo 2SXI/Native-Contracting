@@ -187,6 +187,20 @@
   });
 })();
 
+// ===== Image fallback: replace any broken image with a labeled placeholder =====
+(function(){
+  document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('error', function onErr(){
+      img.removeEventListener('error', onErr);
+      const label = (img.alt || 'Image unavailable').trim();
+      const wrap = document.createElement('div');
+      wrap.className = 'img-fallback';
+      wrap.innerHTML = '<svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg><span>' + label.replace(/</g,'&lt;') + '</span>';
+      if(img.parentNode){ img.parentNode.replaceChild(wrap, img); }
+    }, {once:true});
+  });
+})();
+
 // ===== Ask Assistant (client-side FAQ matching) =====
 (function(){
   const fab = document.getElementById('askFab');
